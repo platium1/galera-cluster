@@ -1,0 +1,18 @@
+---
+- name: deploy the gisdev software stack
+  hosts: all
+  sudo: true
+
+  tasks:
+  
+      - name: Get aptitude for upgrade
+        apt: pkg=aptitude state=present
+
+      - name: Safe system upgrade via aptitude
+        apt: upgrade=safe
+        
+      - name: install base packages
+        apt: pkg={{item}} state=present update_cache=yes cache_valid_time=604800
+        with_items:
+        - ufw
+        - iptables
