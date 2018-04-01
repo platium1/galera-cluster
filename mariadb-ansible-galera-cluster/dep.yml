@@ -14,5 +14,5 @@
       - name: install base packages
         apt: pkg={{item}} state=present update_cache=yes cache_valid_time=604800
         with_items:
-        - ufw
-        - iptables
+        - software-properties-common
+        - dirmngr
