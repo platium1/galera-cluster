@@ -6,7 +6,7 @@
   "containers": [
     {
       "hostname": "db",
-      "template": "debian-stretch",
+      "template": "ubuntu16",
       "peer-criteria": "gr1",
       "size": "${dbtype}",
       "peer-layout": "d1"
@@ -31,7 +31,8 @@
     ],
     "groups": [
       {
-        "name": "monitoring_servers",
+        "name": "galera_cluster",
+        "python-interpreter": "/usr/bin/python3",
         "hostnames": [
           "db"
         ]
